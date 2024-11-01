@@ -21,6 +21,12 @@ pipeline{
                 bat 'docker build -t jenkinsdockerapp:latest .'
             }
         }
+
+        stage('Run Docker Container') {
+            steps {
+                bat 'docker run -d -p 8080:80 jenkinsdockerapp:latest' 
+            }
+        }
     }
        
 }
